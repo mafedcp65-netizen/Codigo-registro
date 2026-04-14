@@ -1,0 +1,8 @@
+streamlit
+pandas
+numpy
+joblib
+openpyxl
+ftfy
+scikit-learn
+msoffcrypto-tool
