@@ -23,10 +23,10 @@ Antes de usar la app, se necesita:
 
 1. Descomprime la carpeta del proyecto.
 2. Abre la carpeta.
-3. Haz clic en la barra de dirección de la carpeta, escribe `powershell` y presiona Enter.
+3. Haz clic derecho e ingrersa a powershell o terminal.
 4. Ejecuta estos comandos uno por uno:
 
-```powershell
+```powershell/ terminal
 python -m pip install -r requirements.txt
 python -m pip install msoffcrypto-tool
 python -m streamlit run app.py
