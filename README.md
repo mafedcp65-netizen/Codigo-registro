@@ -1,4 +1,4 @@
-# Clasificador SVM jerárquico de registros de defunción
+# Clasificador de registros de defunción
 
 Esta aplicación permite cargar una base de datos, procesarla y ejecutar un modelo de clasificación de registros de defunción.
 
@@ -28,5 +28,4 @@ Antes de usar la app, se necesita:
 
 ```powershell/ terminal
 python -m pip install -r requirements.txt
-python -m pip install msoffcrypto-tool
 python -m streamlit run app.py
