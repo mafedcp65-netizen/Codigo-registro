@@ -29,3 +29,18 @@ Antes de usar la app, se necesita:
 ```powershell/ terminal
 python -m pip install -r requirements.txt
 python -m streamlit run app.py
+
+
+## Instalación en caso de falla
+
+Si la app presenta errores con las librerías instaladas en el sistema, se recomienda crear un entorno virtual nuevo.
+
+Abrir la terminal como administrador y ejecutar:
+
+```powershell
+cd "ruta de la carpeta"
+py -3.12 -m venv env312
+env312\Scripts\activate
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+python -m streamlit run app.py
