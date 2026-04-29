@@ -17,7 +17,7 @@ Antes de usar la aplicación, se necesita tener instalado:
 
 ## ¿Dónde está el archivo de la aplicación?
 
-El archivo de la aplicación **no aparece directamente en la lista principal de archivos del repositorio**.
+El archivo principal de la aplicación **no aparece directamente en la lista principal de archivos del repositorio**.
 
 La aplicación se encuentra en la sección **Releases** de GitHub.
 
@@ -46,23 +46,61 @@ No se debe abrir ni descomprimir manualmente el archivo `clasificador-registros.
 
 ---
 
-## Paso 1: Descargar la aplicación
+## Ejecución recomendada con `abrir_app.bat`
 
-Desde la sección **Releases > Assets**, descargar el archivo:
+Para facilitar el uso, este repositorio incluye el archivo:
+
+```text
+abrir_app.bat
+```
+
+Este archivo permite cargar y ejecutar la aplicación sin escribir comandos manualmente en PowerShell.
+
+Para que funcione correctamente, los siguientes archivos deben estar en la **misma carpeta**:
+
+```text
+clasificador-registros.tar
+abrir_app.bat
+```
+
+La aplicación se puede ejecutar desde el **Escritorio** del computador, siempre que ambos archivos estén juntos en una misma carpeta. Por ejemplo:
+
+```text
+Escritorio/
+└── Clasificador_Registros/
+    ├── clasificador-registros.tar
+    └── abrir_app.bat
+```
+
+Si `abrir_app.bat` está en una carpeta y `clasificador-registros.tar` está en otra, la aplicación no podrá cargarse correctamente.
+
+---
+
+## Pasos para ejecutar la aplicación
+
+### Paso 1: Descargar los archivos necesarios
+
+Descargar desde este repositorio:
+
+```text
+abrir_app.bat
+```
+
+Y desde **Releases > Assets**, descargar:
 
 ```text
 clasificador-registros.tar
 ```
 
-Se recomienda guardarlo en una carpeta fácil de encontrar, por ejemplo:
+Se recomienda guardar ambos archivos en una carpeta fácil de encontrar, por ejemplo:
 
 ```text
-Descargas
+Escritorio/Clasificador_Registros
 ```
 
 ---
 
-## Paso 2: Abrir Docker Desktop
+### Paso 2: Abrir Docker Desktop
 
 Antes de ejecutar la aplicación, abrir **Docker Desktop**.
 
@@ -70,61 +108,30 @@ Esperar unos segundos hasta que Docker esté funcionando correctamente.
 
 ---
 
-## Paso 3: Abrir PowerShell en la carpeta del archivo
+### Paso 3: Ejecutar la aplicación
 
-Buscar la carpeta donde se descargó el archivo:
+Entrar a la carpeta donde están juntos:
 
 ```text
 clasificador-registros.tar
+abrir_app.bat
 ```
 
-Por ejemplo, puede estar en:
+Luego dar doble clic en:
 
 ```text
-Descargas
+abrir_app.bat
 ```
 
-Luego realizar lo siguiente:
+Se abrirá una ventana negra de comandos.
 
-1. Entrar a la carpeta donde está el archivo.
-2. Hacer clic en la barra de dirección de la carpeta.
-3. Escribir:
+Si es la primera vez que se ejecuta la aplicación, el archivo cargará automáticamente la imagen Docker desde `clasificador-registros.tar`. Después iniciará la aplicación.
 
-```text
-powershell
-```
-
-4. Presionar **Enter**.
-
-Esto abrirá una ventana de PowerShell directamente en esa carpeta.
+La ventana debe permanecer abierta mientras se usa la aplicación.
 
 ---
 
-## Paso 4: Cargar la imagen Docker
-
-En PowerShell, copiar y pegar el siguiente comando:
-
-```powershell
-docker load -i clasificador-registros.tar
-```
-
-Esperar a que el proceso termine. Puede tardar algunos minutos.
-
----
-
-## Paso 5: Ejecutar la aplicación
-
-Después de cargar la imagen, ejecutar el siguiente comando:
-
-```powershell
-docker run -p 8501:8501 clasificador-registros:latest
-```
-
-La ventana de PowerShell debe permanecer abierta mientras se usa la aplicación.
-
----
-
-## Paso 6: Abrir la aplicación
+### Paso 4: Abrir la aplicación en el navegador
 
 Abrir un navegador web y entrar a la siguiente dirección:
 
@@ -140,14 +147,14 @@ Allí debería abrirse la aplicación.
 
 Para cerrar la aplicación:
 
-1. Volver a la ventana de PowerShell donde se está ejecutando la aplicación.
+1. Volver a la ventana negra donde se está ejecutando la aplicación.
 2. Presionar las teclas:
 
 ```text
 Ctrl + C
 ```
 
-3. Si PowerShell pregunta si desea terminar el proceso, escribir:
+3. Si la terminal pregunta si desea terminar el proceso, escribir:
 
 ```text
 S
@@ -166,3 +173,54 @@ según el idioma del sistema.
 Después de esto, la aplicación quedará cerrada.
 
 ---
+
+## Uso después de la primera vez
+
+La primera vez, `abrir_app.bat` carga la imagen Docker desde:
+
+```text
+clasificador-registros.tar
+```
+
+Después de eso, la imagen queda guardada en Docker.
+
+Por lo tanto, para usos posteriores solo se necesita:
+
+1. Abrir **Docker Desktop**.
+2. Entrar a la carpeta donde está `abrir_app.bat`.
+3. Dar doble clic en:
+
+```text
+abrir_app.bat
+```
+
+4. Abrir en el navegador:
+
+```text
+http://localhost:8501
+```
+
+No es necesario volver a descargar ni cargar la imagen manualmente, a menos que se publique una nueva versión de la aplicación.
+
+---
+
+## Ejecución manual en PowerShell
+
+Si se prefiere ejecutar la aplicación manualmente, abrir PowerShell en la carpeta donde está `clasificador-registros.tar` y ejecutar:
+
+```powershell
+docker load -i clasificador-registros.tar
+docker run -p 8501:8501 clasificador-registros:latest
+```
+
+Luego abrir en el navegador:
+
+```text
+http://localhost:8501
+```
+
+Para cerrar la aplicación, volver a PowerShell y presionar:
+
+```text
+Ctrl + C
+```
