@@ -1,47 +1,168 @@
 # Clasificador de registros de defunción
 
-Esta aplicación permite cargar una base de datos, procesarla y ejecutar un modelo de clasificación de registros de defunción.
+Esta aplicación permite cargar una base de datos de registros de defunción y ejecutar una clasificación automática mediante una aplicación web.
 
-## Archivos necesarios
+La aplicación viene empaquetada en **Docker**, por lo que no es necesario instalar Python ni instalar librerías manualmente.
 
-La carpeta debe contener estos archivos:
-
-- `app.py`
-- `requirements.txt`
-- `modelos_svm_dos_etapas.zip`
+---
 
 ## Requisitos
 
-Antes de usar la app, se necesita:
+Antes de usar la aplicación, se necesita tener instalado:
 
-- Windows
-- Python instalado
-- Conexión a internet la primera vez para instalar dependencias
-- Navegador web
+- Docker Desktop
+- Un navegador web, como Google Chrome, Microsoft Edge o Firefox
 
-## Instalación
+---
 
-1. Descomprime la carpeta del proyecto.
-2. Abre la carpeta.
-3. Haz clic derecho e ingrersa a powershell o terminal.
-4. Ejecuta estos comandos uno por uno:
+## ¿Dónde está el archivo de la aplicación?
 
-```powershell/ terminal
-python -m pip install -r requirements.txt
-python -m streamlit run app.py
+El archivo de la aplicación **no aparece directamente en la lista principal de archivos del repositorio**.
 
+La aplicación se encuentra en la sección **Releases** de GitHub.
 
-## Instalación en caso de falla
+Para encontrarla:
 
-Si la app presenta errores con las librerías instaladas en el sistema, se recomienda crear un entorno virtual nuevo.
+1. Entrar a este repositorio en GitHub.
+2. Mirar el lado derecho de la página.
+3. Buscar la sección llamada **Releases**.
+4. Hacer clic en la versión publicada, por ejemplo:
 
-Abrir la terminal como administrador y ejecutar:
+```text
+v1.0
+```
+
+5. En la página de la versión, bajar hasta la sección **Assets**.
+6. Descargar el archivo:
+
+```text
+clasificador-registros.tar
+```
+
+Este archivo contiene la aplicación completa.
+
+**Importante:**  
+No se debe abrir ni descomprimir manualmente el archivo `clasificador-registros.tar`.
+
+---
+
+## Paso 1: Descargar la aplicación
+
+Desde la sección **Releases > Assets**, descargar el archivo:
+
+```text
+clasificador-registros.tar
+```
+
+Se recomienda guardarlo en una carpeta fácil de encontrar, por ejemplo:
+
+```text
+Descargas
+```
+
+---
+
+## Paso 2: Abrir Docker Desktop
+
+Antes de ejecutar la aplicación, abrir **Docker Desktop**.
+
+Esperar unos segundos hasta que Docker esté funcionando correctamente.
+
+---
+
+## Paso 3: Abrir PowerShell en la carpeta del archivo
+
+Buscar la carpeta donde se descargó el archivo:
+
+```text
+clasificador-registros.tar
+```
+
+Por ejemplo, puede estar en:
+
+```text
+Descargas
+```
+
+Luego realizar lo siguiente:
+
+1. Entrar a la carpeta donde está el archivo.
+2. Hacer clic en la barra de dirección de la carpeta.
+3. Escribir:
+
+```text
+powershell
+```
+
+4. Presionar **Enter**.
+
+Esto abrirá una ventana de PowerShell directamente en esa carpeta.
+
+---
+
+## Paso 4: Cargar la imagen Docker
+
+En PowerShell, copiar y pegar el siguiente comando:
 
 ```powershell
-cd "ruta de la carpeta"
-py -3.12 -m venv env312
-env312\Scripts\activate
-python -m pip install --upgrade pip
-pip install -r requirements.txt
-python -m streamlit run app.py
+docker load -i clasificador-registros.tar
 ```
+
+Esperar a que el proceso termine. Puede tardar algunos minutos.
+
+---
+
+## Paso 5: Ejecutar la aplicación
+
+Después de cargar la imagen, ejecutar el siguiente comando:
+
+```powershell
+docker run -p 8501:8501 clasificador-registros:latest
+```
+
+La ventana de PowerShell debe permanecer abierta mientras se usa la aplicación.
+
+---
+
+## Paso 6: Abrir la aplicación
+
+Abrir un navegador web y entrar a la siguiente dirección:
+
+```text
+http://localhost:8501
+```
+
+Allí debería abrirse la aplicación.
+
+---
+
+## ¿Cómo cerrar la aplicación?
+
+Para cerrar la aplicación:
+
+1. Volver a la ventana de PowerShell donde se está ejecutando la aplicación.
+2. Presionar las teclas:
+
+```text
+Ctrl + C
+```
+
+3. Si PowerShell pregunta si desea terminar el proceso, escribir:
+
+```text
+S
+```
+
+o:
+
+```text
+Y
+```
+
+según el idioma del sistema.
+
+4. Presionar **Enter**.
+
+Después de esto, la aplicación quedará cerrada.
+
+---
