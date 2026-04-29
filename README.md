@@ -186,15 +186,19 @@ Después de eso, la imagen queda guardada en Docker.
 
 Por lo tanto, para usos posteriores solo se necesita:
 
-1. Abrir **Docker Desktop**.
-2. Entrar a la carpeta donde está `abrir_app.bat`.
-3. Dar doble clic en:
+1. Entrar a la carpeta donde está guardado el archivo:
 
 ```text
 abrir_app.bat
 ```
 
-4. Abrir en el navegador:
+2. Dar doble clic en:
+
+```text
+abrir_app.bat
+```
+
+3. Abrir en el navegador:
 
 ```text
 http://localhost:8501
@@ -202,7 +206,7 @@ http://localhost:8501
 
 No es necesario volver a descargar ni cargar la imagen manualmente, a menos que se publique una nueva versión de la aplicación.
 
----
+Tampoco es necesario abrir Docker Desktop manualmente después de la primera vez; al ejecutar `abrir_app.bat`, la aplicación debería iniciar normalmente si Docker ya quedó configurado en el computador.
 
 ## Ejecución manual en PowerShell
 
