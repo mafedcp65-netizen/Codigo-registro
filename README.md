@@ -31,7 +31,7 @@ http://localhost:8501
 ```
 
 
-## Opción 1: Ejecución manual desde Releases
+## Opción 2: Ejecución manual desde Releases
 
 Si se desea ejecutar la aplicación manualmente, descargar el archivo `clasificador-registros.tar` desde la sección **Releases** y dejarlo en la misma carpeta que `abrir_app.bat`.
 
