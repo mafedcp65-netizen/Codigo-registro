@@ -3,7 +3,7 @@
 Este repositorio contiene una aplicación para clasificar registros de defunción mediante un modelo previamente empaquetado en Docker. La aplicación permite ejecutar el sistema de forma local desde el computador y acceder a una interfaz web desde el navegador.
 
 
-[Vista de la aplicación](vista_app.png)
+<img src="vista_app.png" alt="Vista de la aplicación" width="900">
 
 ## Requisitos
 
